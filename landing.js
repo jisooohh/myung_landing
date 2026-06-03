@@ -22,6 +22,8 @@ var CONFIG = {
 (function (cfg) {
   "use strict";
 
+  var isEnglish = (document.documentElement.getAttribute('lang') || '').toLowerCase().indexOf('en') === 0;
+
   function track(name, params) {
     try { if (window.gtag) window.gtag('event', name, params || {}); } catch (_) {}
   }
@@ -64,7 +66,9 @@ var CONFIG = {
     if (!el) return;
     var w = el.querySelector('.word');
     if (!w) return;
-    var words = ['연애를', '취업을', '썸을', '이별을', '인간관계를', '퇴사를'];
+    var words = isEnglish
+      ? ['dating', 'job hunting', 'a crush', 'a breakup', 'relationships', 'quitting']
+      : ['연애를', '취업을', '썸을', '이별을', '인간관계를', '퇴사를'];
 
     w.style.opacity   = '1';
     w.style.transform = 'none';
@@ -107,7 +111,14 @@ var CONFIG = {
       var y = d.getFullYear();
       var m = String(d.getMonth() + 1).padStart(2, '0');
       var day = String(d.getDate()).padStart(2, '0');
+      if (isEnglish) {
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
       return y + '.' + m + '.' + day + '을';
+    }
+
+    function finalText() {
+      return isEnglish ? 'your future' : '미래를';
     }
 
     function play() {
@@ -115,7 +126,7 @@ var CONFIG = {
       done = true;
       el.classList.add('counting');
       if (reduce) {
-        el.textContent = '미래를';
+        el.textContent = finalText();
         el.classList.remove('counting');
         return;
       }
@@ -132,7 +143,7 @@ var CONFIG = {
         el.textContent = fmt(d);
         if (i >= steps) {
           clearInterval(timer);
-          el.textContent = '미래를';
+          el.textContent = finalText();
           el.classList.remove('counting');
         }
       }, 38);
@@ -189,7 +200,7 @@ var CONFIG = {
     saveLocally(email, loc);
 
     var btn = form ? form.querySelector('button') : null;
-    if (btn) { btn.disabled = true; btn.textContent = '신청 중…'; }
+    if (btn) { btn.disabled = true; btn.textContent = isEnglish ? 'Submitting...' : '신청 중…'; }
 
     function done() {
       track('email_submit', { location: loc });
