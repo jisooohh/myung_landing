@@ -39,7 +39,10 @@
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-snap-type: y proximity;
+}
 
 body {
   margin: 0;
@@ -91,7 +94,15 @@ body {
 }
 
 /* ---- Section rhythm (editorial magazine) ---- */
-section { padding: 54px 0; position: relative; }
+section {
+  position: relative;
+  min-height: 100svh;
+  padding: 72px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+}
 section:not(.hero) {
   counter-increment: sec;
   border-top: 1px solid var(--line);
@@ -123,7 +134,13 @@ section:not(.hero) {
 /* ============================================================
    Hero
    ============================================================ */
-.hero { padding-top: 30px; padding-bottom: 52px; text-align: center; }
+.hero {
+  min-height: 100svh;
+  padding-top: max(28px, env(safe-area-inset-top));
+  padding-bottom: max(56px, env(safe-area-inset-bottom));
+  text-align: center;
+  justify-content: center;
+}
 
 .masthead {
   display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -134,7 +151,7 @@ section:not(.hero) {
 
 .brand {
   display: inline-flex; align-items: center; gap: 2px;
-  margin: 20px 0 32px;
+  margin: 24px auto 34px;
   font-weight: 600; letter-spacing: -0.6px;
   font-size: 19px; line-height: 1;
 }
@@ -176,7 +193,7 @@ section:not(.hero) {
 }
 
 /* ---- Email capture (shared hero / footer) ---- */
-.capture { margin-top: 26px; }
+.capture { margin-top: 30px; }
 .capture form { display: flex; gap: 8px; align-items: stretch; }
 .capture .field {
   flex: 1; min-width: 0;
@@ -267,12 +284,12 @@ section:not(.hero) {
   border-radius: 20px 0 0 20px;
 }
 .duo-merge {
-  margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line);
-  text-align: left;
-  font-size: 17px; font-weight: 600; line-height: 1.52; letter-spacing: -0.4px;
+  margin-top: 34px; padding-top: 28px; border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: clamp(27px, 8.4vw, 38px); font-weight: 700; line-height: 1.22; letter-spacing: -0.7px;
   color: var(--ink); text-wrap: pretty;
 }
-.duo-merge b { color: var(--hi); font-weight: 700; }
+.duo-merge b { color: var(--hi); font-weight: 800; }
 
 /* ============================================================
    문제 환기
@@ -314,7 +331,7 @@ section:not(.hero) {
 .step .body p  { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin: 6px 0 0; }
 
 /* ============================================================
-   예시 결과 — phone frame
+   예시 결과 — result screen
    ============================================================ */
 .preview-intro { margin-bottom: 26px; }
 .preview-badge {
@@ -332,17 +349,18 @@ section:not(.hero) {
 }
 
 .phone {
-  width: 100%; max-width: 360px; margin: 0 auto;
-  background: #050507;
+  width: 100%; max-width: 420px; margin: 0 auto;
+  background: rgba(255, 240, 220, 0.035);
   border: 1px solid var(--line-2);
-  border-radius: 42px; padding: 9px;
-  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.03) inset;
+  border-radius: 22px; padding: 0;
+  box-shadow: 0 24px 52px -28px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.03) inset;
 }
 .phone-screen {
   position: relative;
   background: var(--bg-2);
-  border-radius: 34px; overflow: hidden;
-  height: 540px;
+  border-radius: 22px; overflow: hidden;
+  height: min(540px, calc(100svh - 272px));
+  min-height: 430px;
 }
 .phone-status {
   position: absolute; top: 0; left: 0; right: 0; height: 44px; z-index: 5;
@@ -356,8 +374,12 @@ section:not(.hero) {
   position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
   width: 84px; height: 24px; background: #000; border-radius: 14px; z-index: 6;
 }
+.phone-status,
+.island {
+  display: none;
+}
 .phone-app {
-  position: absolute; inset: 0; padding: 50px 16px 16px;
+  position: absolute; inset: 0; padding: 18px;
   overflow: hidden; display: flex; flex-direction: column;
 }
 .phone-app .app-head {
@@ -479,8 +501,25 @@ section:not(.hero) {
 .bubble.theirs {
   align-self: flex-start; background: var(--surface-2); color: var(--ink);
   border: 1px solid var(--line); border-bottom-left-radius: 5px;
+  margin-left: 42px;
 }
 .bubble.theirs .nm { color: var(--twin); }
+.bubble.theirs::before {
+  content: "건";
+  position: absolute;
+  left: -42px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 35%, var(--spark), var(--primary) 62%, var(--primary-deep));
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow: 0 0 0 1px rgba(255, 240, 220, 0.18), 0 8px 18px -10px rgba(232,92,13,0.9);
+}
 .chat-insight {
   flex-shrink: 0; margin-top: auto;
   display: flex; align-items: center; gap: 9px;
@@ -608,5 +647,14 @@ section:not(.hero) {
 /* ---- Footer ---- */
 .footnote {
   text-align: center; font-family: var(--mono); font-size: 10.5px;
-  color: var(--faint); padding: 0 0 40px; letter-spacing: 0.3px;
+  color: var(--faint); padding: 0 0 40px; letter-spacing: 0.3px; line-height: 1.8;
+}
+.footnote span { color: var(--muted); }
+
+@media (max-height: 680px) {
+  section { padding: 62px 0; }
+  .hero { min-height: 100svh; padding-top: 24px; padding-bottom: 44px; }
+  .brand { margin-bottom: 28px; }
+  .capture { margin-top: 24px; }
+  .phone-screen { height: 430px; min-height: 390px; }
 }
