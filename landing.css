@@ -259,13 +259,24 @@ section:not(.hero) {
 .capture .done {
   display: none;
   align-items: center; gap: 10px; justify-content: center;
-  height: 54px; border-radius: 15px;
+  min-height: 54px; border-radius: 15px;
+  padding: 10px 12px;
   background: rgba(91, 166, 114, 0.12);
   border: 1px solid rgba(91, 166, 114, 0.4);
   color: #8FD7A6; font-size: 14.5px; font-weight: 600;
 }
 .capture.ok .done { display: flex; }
 .capture.ok .note { color: var(--muted); }
+.survey-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 34px; padding: 0 12px; border-radius: 999px;
+  background: rgba(255, 122, 46, 0.18);
+  border: 1px solid rgba(255, 122, 46, 0.38);
+  color: var(--hi); text-decoration: none;
+  font-size: 12.5px; font-weight: 800;
+  white-space: nowrap;
+}
+.survey-link:hover { background: rgba(255, 122, 46, 0.26); color: #fff; }
 
 /* ============================================================
    두 개의 당신 — duality

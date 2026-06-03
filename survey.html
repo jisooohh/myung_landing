@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0C">
+<title>myung.ai - 기능 제안 설문</title>
+<meta name="description" content="myung.ai 무료 베타 릴리즈 전, 가장 필요한 기능을 알려주세요.">
+<meta property="og:title" content="myung.ai - 기능 제안 설문">
+<meta property="og:description" content="무료 베타에서 가장 먼저 보고 싶은 기능을 알려주세요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myunglanding.vercel.app/survey.html">
+<meta property="og:image" content="https://myunglanding.vercel.app/assets/og-myung.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://myunglanding.vercel.app/survey.html">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGKR1W7DQ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SGKR1W7DQ2');
+</script>
+
+<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="survey.css">
+</head>
+<body>
+<div id="sky"></div>
+
+<main class="survey-shell">
+  <header class="survey-top">
+    <a class="survey-brand" href="index.html" aria-label="myung.ai 홈">
+      <span class="my">my</span><span>ung.ai</span>
+    </a>
+    <p>무료 베타 전에 가장 필요한 기능을 알려주세요.</p>
+  </header>
+
+  <section class="survey-card" aria-live="polite">
+    <div class="survey-progress">
+      <span id="survey-count">1 / 7</span>
+      <div class="progress-track"><i id="survey-bar"></i></div>
+    </div>
+
+    <div id="survey-view"></div>
+
+    <div class="survey-actions">
+      <button class="survey-ghost" id="survey-prev" type="button">이전</button>
+      <button class="survey-next" id="survey-next" type="button">다음</button>
+    </div>
+  </section>
+</main>
+
+<script src="survey.js"></script>
+</body>
+</html>

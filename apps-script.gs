@@ -1,5 +1,5 @@
 /**
- * myung.ai — Waitlist → Google Sheets 연동
+ * myung.ai — Waitlist / Feature Survey → Google Sheets 연동
  *
  * ──────────────────────────────────────────────────────────
  * 설정 방법 (5분)
@@ -29,15 +29,20 @@
  */
 
 /* 저장할 시트 이름. 없으면 자동 생성됩니다. */
-var SHEET_NAME = 'Waitlist';
+var WAITLIST_SHEET_NAME = 'Waitlist';
+var SURVEY_SHEET_NAME = 'FeatureSurvey';
 
 /* ── POST 수신 (랜딩페이지 → 여기로 전송) ─────────────── */
 function doPost(e) {
   try {
     var raw  = (e && e.postData && e.postData.contents) ? e.postData.contents : '{}';
     var data = JSON.parse(raw);
-    appendRow(data);
-    return ok({ saved: true });
+    if (data.type === 'survey') {
+      appendSurveyRows(data);
+      return ok({ saved: true, type: 'survey' });
+    }
+    appendWaitlistRow(data);
+    return ok({ saved: true, type: 'waitlist' });
   } catch (err) {
     return ok({ saved: false, error: err.message });
   }
@@ -45,29 +50,12 @@ function doPost(e) {
 
 /* ── GET (브라우저에서 URL 직접 열어 동작 확인용) ──────── */
 function doGet() {
-  return ok({ live: true, sheet: SHEET_NAME });
+  return ok({ live: true, waitlistSheet: WAITLIST_SHEET_NAME, surveySheet: SURVEY_SHEET_NAME });
 }
 
-/* ── 시트에 행 추가 ──────────────────────────────────── */
-function appendRow(data) {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME);
-
-  /* 시트가 없으면 새로 만들고 헤더 추가 */
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(['timestamp', 'email', 'location', 'user_agent']);
-    sheet.setFrozenRows(1);
-    /* 헤더 서식 */
-    sheet.getRange(1, 1, 1, 4)
-      .setFontWeight('bold')
-      .setBackground('#E85C0D')
-      .setFontColor('#ffffff');
-    sheet.setColumnWidth(1, 200);
-    sheet.setColumnWidth(2, 240);
-    sheet.setColumnWidth(3, 100);
-    sheet.setColumnWidth(4, 320);
-  }
+/* ── 대기자 명단 시트에 행 추가 ───────────────────────── */
+function appendWaitlistRow(data) {
+  var sheet = ensureSheet(WAITLIST_SHEET_NAME, ['timestamp', 'email', 'location', 'user_agent'], [200, 240, 100, 320]);
 
   sheet.appendRow([
     data.at       || new Date().toISOString(),
@@ -75,6 +63,77 @@ function appendRow(data) {
     data.location || '',
     data.ua       || ''
   ]);
+}
+
+/* ── 기능별 설문 시트에 행 추가 ───────────────────────── */
+function appendSurveyRows(data) {
+  var sheet = ensureSheet(SURVEY_SHEET_NAME, [
+    'timestamp',
+    'email',
+    'feature_key',
+    'feature_name',
+    'feature_short',
+    'interest',
+    'reason_driver',
+    'frequency',
+    'extra_feature',
+    'page',
+    'user_agent'
+  ], [200, 240, 180, 160, 280, 100, 180, 160, 360, 160, 320]);
+
+  var answers = Array.isArray(data.answers) ? data.answers : [];
+  if (!answers.length) {
+    sheet.appendRow([
+      data.at || new Date().toISOString(),
+      data.email || '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      data.extra_feature || '',
+      data.page || '',
+      data.ua || ''
+    ]);
+    return;
+  }
+
+  answers.forEach(function(answer) {
+    sheet.appendRow([
+      data.at || new Date().toISOString(),
+      data.email || '',
+      answer.feature_key || '',
+      answer.feature_name || '',
+      answer.feature_short || '',
+      answer.interest || '',
+      answer.reason_driver || '',
+      answer.frequency || '',
+      data.extra_feature || '',
+      data.page || '',
+      data.ua || ''
+    ]);
+  });
+}
+
+function ensureSheet(name, headers, widths) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(name);
+
+  if (!sheet) {
+    sheet = ss.insertSheet(name);
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    sheet.getRange(1, 1, 1, headers.length)
+      .setFontWeight('bold')
+      .setBackground('#E85C0D')
+      .setFontColor('#ffffff');
+    widths.forEach(function(width, index) {
+      sheet.setColumnWidth(index + 1, width);
+    });
+  }
+
+  return sheet;
 }
 
 /* ── 응답 헬퍼 ──────────────────────────────────────── */

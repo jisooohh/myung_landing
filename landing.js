@@ -245,6 +245,15 @@ var CONFIG = {
 
   function showSuccess() {
     document.querySelectorAll('.capture').forEach(function (w) { w.classList.add('ok'); });
+    try {
+      var list = JSON.parse(localStorage.getItem('myung_waitlist') || '[]');
+      var last = list[list.length - 1];
+      if (last && last.email) {
+        document.querySelectorAll('.survey-link').forEach(function (link) {
+          link.href = 'survey.html?email=' + encodeURIComponent(last.email);
+        });
+      }
+    } catch (_) {}
     var fb = document.getElementById('floatbar');
     if (fb) fb.classList.remove('show');
   }
