@@ -13,7 +13,7 @@ var CONFIG = {
   // Google Apps Script 웹 앱 URL — apps-script.gs 배포 후 붙여넣기
   // 예: 'https://script.google.com/macros/s/AKfy.../exec'
   // 비워두면 localStorage에만 저장 (데모 모드)
-  SHEETS_URL: ''
+  SHEETS_URL: 'https://script.google.com/macros/s/AKfycbzqx81YHSZFqCSx9pPrPWoRB2uaspcKcq5C0tQVX4Cx17bd3STb85hPRbB089OdJ5LJ/exec'
 };
 
 /* ============================================================
