@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1050" viewBox="0 0 840 1050">
+  <rect width="840" height="1050" fill="#15120e"/>
+  <circle cx="80" cy="94" r="56" fill="#050505" stroke="#ff831a" stroke-width="5"/>
+  <text x="80" y="116" fill="#fff" text-anchor="middle" font-size="42" font-weight="800" font-family="Arial, sans-serif">참</text>
+  <text x="164" y="84" fill="#fff" font-size="38" font-weight="800" font-family="Arial, sans-serif">찹츄</text>
+  <rect x="164" y="110" width="140" height="40" rx="20" fill="#2a251e"/>
+  <text x="234" y="137" fill="#d5cec4" text-anchor="middle" font-size="20" font-family="Arial, sans-serif">2001-07-19</text>
+  <rect x="318" y="110" width="84" height="40" rx="20" fill="#2a251e"/>
+  <text x="360" y="137" fill="#d5cec4" text-anchor="middle" font-size="20" font-family="Arial, sans-serif">ENFP</text>
+  <rect x="12" y="198" width="816" height="80" rx="22" fill="#211c15"/>
+  <rect x="284" y="204" width="268" height="68" rx="18" fill="#17140f"/>
+  <text x="128" y="248" fill="#7f776c" text-anchor="middle" font-size="25" font-weight="800" font-family="Arial, sans-serif">만세력</text>
+  <text x="418" y="248" fill="#fff" text-anchor="middle" font-size="25" font-weight="800" font-family="Arial, sans-serif">패턴</text>
+  <text x="690" y="248" fill="#7f776c" text-anchor="middle" font-size="25" font-weight="800" font-family="Arial, sans-serif">친구</text>
+  <line x1="0" y1="300" x2="840" y2="300" stroke="#30291f" stroke-width="2"/>
+  <text x="22" y="370" fill="#9f978b" font-size="24" font-weight="800" font-family="Arial, sans-serif">성향맵 · TENDENCY</text>
+  <text x="22" y="425" fill="#afa69b" font-size="25" font-family="serif" font-style="italic">대화로 클론이 파악한 성향</text>
+  <rect x="22" y="456" width="796" height="420" rx="36" fill="#181510" stroke="#30291f" stroke-width="2"/>
+  <polygon points="420,552 574,664 515,840 325,840 266,664" fill="none" stroke="#28231d" stroke-width="3"/>
+  <polygon points="420,580 535,650 500,790 372,770 312,650" fill="#2a2340" stroke="#7e62eb" stroke-width="5"/>
+  <circle cx="420" cy="580" r="8" fill="#7e62eb"/>
+  <circle cx="535" cy="650" r="8" fill="#7e62eb"/>
+  <circle cx="500" cy="790" r="8" fill="#7e62eb"/>
+  <circle cx="372" cy="770" r="8" fill="#7e62eb"/>
+  <circle cx="312" cy="650" r="8" fill="#7e62eb"/>
+  <text x="420" y="522" fill="#aaa196" text-anchor="middle" font-size="18" font-family="Arial, sans-serif">사회적 민감성</text>
+  <text x="592" y="655" fill="#aaa196" font-size="18" font-family="Arial, sans-serif">자극 추구</text>
+  <text x="488" y="872" fill="#aaa196" font-size="18" font-family="Arial, sans-serif">자기 성찰</text>
+  <text x="260" y="872" fill="#aaa196" font-size="18" font-family="Arial, sans-serif">관계 깊이</text>
+  <text x="198" y="655" fill="#aaa196" font-size="18" font-family="Arial, sans-serif">방향성</text>
+  <text x="54" y="948" fill="#fff" font-size="26" font-weight="800" font-family="Arial, sans-serif">사회적 민감성</text>
+  <text x="222" y="948" fill="#d5cec4" font-size="26" font-family="Arial, sans-serif">이 높고 자극 추구가 강한 확장형이에요.</text>
+</svg>

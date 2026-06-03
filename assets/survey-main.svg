@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1050" viewBox="0 0 840 1050">
+  <rect width="840" height="1050" fill="#15120e"/>
+  <circle cx="420" cy="95" r="54" fill="#050505" stroke="#ff8a1f" stroke-width="8"/>
+  <text x="420" y="112" fill="#fff" text-anchor="middle" font-size="34" font-weight="800" font-family="Arial, sans-serif">참</text>
+  <text x="420" y="206" fill="#9f978b" text-anchor="middle" font-size="24" font-weight="700" font-family="Arial, sans-serif">오늘의 한 줄</text>
+  <text x="420" y="278" fill="#ddd6ca" text-anchor="middle" font-size="36" font-weight="800" font-family="Arial, sans-serif">쌓아온 가능성을 깨우고,</text>
+  <text x="420" y="328" fill="#ff831a" text-anchor="middle" font-size="36" font-weight="800" font-family="Arial, sans-serif">너만의 잠재력</text>
+  <text x="420" y="378" fill="#ddd6ca" text-anchor="middle" font-size="36" font-weight="800" font-family="Arial, sans-serif">을 발휘할 수 있는 날이야</text>
+  <rect x="28" y="448" width="384" height="124" rx="34" fill="#191611" stroke="#312a20" stroke-width="2"/>
+  <rect x="428" y="448" width="384" height="124" rx="34" fill="#191611" stroke="#312a20" stroke-width="2"/>
+  <text x="64" y="493" fill="#aaa196" font-size="20" font-weight="800" font-family="Arial, sans-serif">GOOD</text>
+  <text x="464" y="493" fill="#aaa196" font-size="20" font-weight="800" font-family="Arial, sans-serif">BAD</text>
+  <text x="64" y="544" fill="#f7f0e6" font-size="25" font-weight="800" font-family="Arial, sans-serif">이미 내린 결정 점검</text>
+  <text x="464" y="544" fill="#f7f0e6" font-size="25" font-weight="800" font-family="Arial, sans-serif">새 약속 · 즉흥 지출</text>
+  <rect x="28" y="620" width="784" height="380" rx="32" fill="#1d1913" stroke="#30291f" stroke-width="2"/>
+  <line x1="28" y1="720" x2="812" y2="720" stroke="#30291f" stroke-width="2"/>
+  <text x="64" y="674" fill="#fff8ed" font-size="34" font-weight="800" font-family="Georgia, serif">2026</text>
+  <text x="170" y="680" fill="#c8bfb4" font-size="24" font-family="Arial, sans-serif">쌓아온 것을 정리하고 구조를 다시 짜는 해</text>
+  <text x="64" y="780" fill="#fff8ed" font-size="34" font-family="Georgia, serif">6월</text>
+  <text x="170" y="786" fill="#c8bfb4" font-size="24" font-family="Arial, sans-serif">관계의 온도를 확인하는 시기</text>
+  <polygon points="420,788 565,874 510,1018 330,1018 275,874" fill="none" stroke="#2f2a22" stroke-width="3"/>
+  <polyline points="420,872 490,904 523,978 356,958 350,912 420,872" fill="none" stroke="#ff831a" stroke-width="5"/>
+  <text x="420" y="932" fill="#eee5da" font-size="50" text-anchor="middle" font-family="Georgia, serif">4일</text>
+</svg>

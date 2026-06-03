@@ -13,42 +13,42 @@
       name: "메인 페이지",
       short: "연/월/오늘 운세",
       desc: "오늘의 흐름부터 올해와 이번 달의 핵심 운세까지 한 화면에서 확인합니다.",
-      mock: mainFortuneMock()
+      image: "assets/survey-main.svg"
     },
     {
       key: "choice_map",
       name: "Map",
       short: "선택들의 map",
       desc: "내가 지나온 선택과 앞으로의 갈림길을 지도처럼 펼쳐 봅니다.",
-      mock: choiceMapMock()
+      image: "assets/survey-map.svg"
     },
     {
       key: "career_sim",
       name: "진로 시뮬",
       short: "선택한 옵션으로 시나리오 시뮬레이션",
       desc: "선택지를 고르면 클론이 그 길을 먼저 살아보고 시나리오로 보여줍니다.",
-      mock: careerMock()
+      image: "assets/survey-career.svg"
     },
     {
       key: "relationship_sim",
       name: "관계 시뮬",
       short: "궁합 본 후, 상대 클론과 채팅",
       desc: "상대와의 궁합을 본 뒤, 상대 클론과 대화하며 관계의 다음 장면을 확인합니다.",
-      mock: relationshipMock()
+      image: "assets/survey-relationship.svg"
     },
     {
       key: "general_report",
       name: "일반 고민",
       short: "보고서",
       desc: "정리되지 않은 고민을 입력하면 판단 기준과 다음 행동을 보고서로 받아봅니다.",
-      mock: reportMock()
+      image: "assets/survey-report.svg"
     },
     {
       key: "my_patterns",
       name: "My",
       short: "만세력 및 내 선택 패턴 확인",
       desc: "내 만세력, 반복되는 선택 패턴, 관계와 선택의 성향을 한 곳에서 봅니다.",
-      mock: myPatternMock()
+      image: "assets/survey-my.svg"
     }
   ];
 
@@ -129,7 +129,7 @@
       '</div>' +
       '<div class="survey-shot">' +
         '<div class="shot-head"><div><div class="shot-title">' + feature.name + '</div><div class="mock-label">' + feature.short + '</div></div><span class="shot-pill">SCREEN CAPTURE</span></div>' +
-        '<div class="mock-screen">' + feature.mock + '</div>' +
+        '<div class="survey-image-frame"><img class="survey-capture-img" src="' + feature.image + '" alt="' + feature.name + ' 화면 캡처"></div>' +
       '</div>';
     if (!answers[feature.key]) answers[feature.key] = answer;
     bindChoices();
@@ -245,68 +245,6 @@
     }).catch(function () {
       renderDone();
     });
-  }
-
-  function mainFortuneMock() {
-    return '<div class="shot-main">' +
-      '<div class="fortune-mark">참</div><div class="mini-muted">오늘의 한 줄</div>' +
-      '<h3>갑추가 지금까지 쌓아온 가능성을 깨우고,<br><b>너만의 잠재력</b>을 발휘할 수 있는 날이야</h3>' +
-      '<div class="goodbad"><div><span>GOOD</span><b>이미 내린 결정 점검</b></div><div><span>BAD</span><b>새 약속 · 즉흥 지출</b></div></div>' +
-      '<div class="fortune-list"><p><b>2026</b><span>쌓아온 것을 정리하고 구조를 다시 짜는 해</span></p><p><b>6월</b><span>관계의 온도를 확인하는 시기</span></p></div>' +
-      '<div class="radar"><i></i><span>木</span><span>火</span><span>土</span><span>金</span><span>水</span><b>4일</b></div>' +
-    '</div>';
-  }
-
-  function choiceMapMock() {
-    return '<div class="shot-map">' +
-      '<div class="map-me">나</div><div class="path-line"></div>' +
-      '<div class="map-box top">김지원와의 ...</div><div class="map-box mid">개발자로 취...</div>' +
-      '<div class="map-box left">포트폴리오 경로<small>프리랜서 경로</small></div>' +
-      '<div class="map-box right">첫 프로젝트 경로<small>협상 경로</small></div>' +
-      '<div class="map-box bottom">나이가 들수...</div>' +
-    '</div>';
-  }
-
-  function careerMock() {
-    return '<div class="shot-career">' +
-      '<div class="mock-progress"><span>전개 <b>4 / 6</b></span><i></i></div>' +
-      '<div class="scenario-label">시나리오 전개 1</div>' +
-      '<div class="scenario-card">6개월 더 준비하기로 마음먹고, 퇴근 후 토이프로젝트를 시작해요. 처음엔 의미가 있나 싶지만, 庚金의 압박 속에서 만든 결과물이 오히려 단단해요.</div>' +
-      '<h4>가장 먼저 무엇을 할까요?</h4>' +
-      '<div class="career-option">포트폴리오 사이트부터 만든다</div>' +
-      '<div class="career-option selected">지인에게 첫 프로젝트를 부탁한다</div>' +
-      '<div class="career-option">코딩테스트 스터디에 다시 들어간다</div>' +
-    '</div>';
-  }
-
-  function relationshipMock() {
-    return '<div class="shot-chat">' +
-      '<div class="chat-head"><span>王</span><b>이서연</b><em>클론</em></div>' +
-      '<div class="chat-banner">대화 시뮬레이션 · 이서연의 클론과 대화 중</div>' +
-      '<p class="bubble bot">아라야, 오늘 하루 어땠어?</p>' +
-      '<p class="bubble me">그냥 그랬어... 요즘 우리 사이 좀 애매한 것 같아서.</p>' +
-      '<p class="bubble bot">무슨 일 있었어? 말 안 해도 돼, 근데 저녁은 먹었어?</p>' +
-      '<p class="bubble me">(또 위로 대신 밥 얘기네... 내 마음은 안 궁금한가?)</p>' +
-      '<p class="bubble bot">사실 너 요즘 힘들어 보여서 계속 신경 쓰였어.</p>' +
-    '</div>';
-  }
-
-  function reportMock() {
-    return '<div class="shot-report">' +
-      '<span>CONCERN REPORT</span><h3>지금 고민의 핵심은<br>선택지가 아니라 기준입니다</h3>' +
-      '<p>1. 지금 바로 결정해야 하는 것</p><p>2. 더 물어봐야 하는 것</p><p>3. 일주일 뒤에도 남을 감정</p>' +
-      '<b>다음 행동: 오늘 한 사람에게만 확인하기</b>' +
-    '</div>';
-  }
-
-  function myPatternMock() {
-    return '<div class="shot-my">' +
-      '<div class="my-profile"><span>참</span><div><b>찹츄</b><em>2001-07-19 · ENFP · 취준생</em></div></div>' +
-      '<div class="my-tabs"><b>만세력</b><b class="active">패턴</b><b>친구</b></div>' +
-      '<p class="mini-muted">성향맵 · TENDENCY</p><h3>대화로 클론이 파악한 성향</h3>' +
-      '<div class="pattern-radar"><i></i><span>사회적 민감성</span><span>자극 추구</span><span>자기 성찰</span><span>관계 깊이</span><span>방향성</span></div>' +
-      '<p><b>사회적 민감성</b>이 높고 <b>자극 추구</b>가 강한 확장형이에요.</p>' +
-    '</div>';
   }
 
   prev.addEventListener("click", function () {

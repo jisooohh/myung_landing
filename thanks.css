@@ -34,9 +34,9 @@
 }
 .thanks-card h1 {
   margin: 16px 0 0;
-  font-size: clamp(32px, 9vw, 58px);
-  line-height: 1.16;
-  letter-spacing: -1.8px;
+  font-size: clamp(27px, 7vw, 42px);
+  line-height: 1.22;
+  letter-spacing: -1px;
 }
 .thanks-card > p {
   margin: 18px auto 0;

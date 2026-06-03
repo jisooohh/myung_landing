@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1050" viewBox="0 0 840 1050">
+  <rect width="840" height="1050" fill="#07070b"/>
+  <radialGradient id="g" cx="50%" cy="0%" r="75%"><stop offset="0" stop-color="#392944"/><stop offset="1" stop-color="#050507"/></radialGradient>
+  <rect width="840" height="1050" fill="url(#g)"/>
+  <line x1="420" y1="120" x2="420" y2="850" stroke="#ff841c" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="420" cy="76" r="48" fill="#ff983b" stroke="#020202" stroke-width="5"/>
+  <text x="420" y="94" fill="#fff" text-anchor="middle" font-size="30" font-weight="800" font-family="Arial, sans-serif">나</text>
+  <rect x="302" y="150" width="236" height="76" rx="18" fill="#251936" stroke="#7656d8" stroke-width="4"/>
+  <text x="420" y="199" fill="#fff" text-anchor="middle" font-size="25" font-weight="800" font-family="Arial, sans-serif">김지원와의 ...</text>
+  <rect x="300" y="330" width="240" height="80" rx="18" fill="#2d1710" stroke="#c96b19" stroke-width="4"/>
+  <text x="420" y="380" fill="#fff" text-anchor="middle" font-size="26" font-weight="800" font-family="Arial, sans-serif">개발자로 취...</text>
+  <path d="M300 370 C210 400 190 452 150 480" fill="none" stroke="#7a7065" stroke-width="4" stroke-dasharray="10 12"/>
+  <path d="M540 370 C630 400 650 452 690 480" fill="none" stroke="#7a7065" stroke-width="4" stroke-dasharray="10 12"/>
+  <rect x="118" y="448" width="198" height="96" rx="18" fill="#2a170d" stroke="#d97519" stroke-width="4"/>
+  <rect x="118" y="526" width="198" height="90" rx="0" fill="#090909" stroke="#6b625b" stroke-width="3" stroke-dasharray="8 7"/>
+  <text x="217" y="508" fill="#fff" text-anchor="middle" font-size="22" font-weight="800" font-family="Arial, sans-serif">포트폴리오 경로</text>
+  <text x="217" y="584" fill="#aaa39b" text-anchor="middle" font-size="20" font-family="Arial, sans-serif">프리랜서 경로</text>
+  <rect x="524" y="448" width="198" height="96" rx="18" fill="#2a170d" stroke="#d97519" stroke-width="4"/>
+  <rect x="524" y="526" width="198" height="90" rx="0" fill="#090909" stroke="#6b625b" stroke-width="3" stroke-dasharray="8 7"/>
+  <text x="623" y="508" fill="#fff" text-anchor="middle" font-size="22" font-weight="800" font-family="Arial, sans-serif">첫 프로젝트 경로</text>
+  <text x="623" y="584" fill="#aaa39b" text-anchor="middle" font-size="20" font-family="Arial, sans-serif">협상 경로</text>
+  <rect x="302" y="690" width="236" height="80" rx="18" fill="#10223b" stroke="#3c84e6" stroke-width="4"/>
+  <text x="420" y="740" fill="#fff" text-anchor="middle" font-size="26" font-weight="800" font-family="Arial, sans-serif">나이가 들수...</text>
+</svg>
