@@ -85,7 +85,7 @@ var CONFIG = {
     setInterval(function () {
       if (busy) return;
       busy = true;
-      w.style.transition = 'opacity .38s ease, transform .38s ease';
+      w.style.transition = 'opacity .2s ease, transform .2s ease';
       w.style.opacity    = '0';
       w.style.transform  = 'translateY(-0.4em)';
       setTimeout(function () {
@@ -95,12 +95,12 @@ var CONFIG = {
         w.style.transform  = 'translateY(0.4em)';
         /* force reflow so the browser commits the hidden state */
         void w.offsetWidth;
-        w.style.transition = 'opacity .38s ease, transform .38s ease';
+        w.style.transition = 'opacity .2s ease, transform .2s ease';
         w.style.opacity    = '1';
         w.style.transform  = 'none';
-        setTimeout(function () { busy = false; }, 400);
-      }, 400);
-    }, 2400);
+        setTimeout(function () { busy = false; }, 220);
+      }, 220);
+    }, 1350);
   }
 
   /* ────────────────────────────────────────────────
@@ -332,17 +332,17 @@ var CONFIG = {
     var played = false;
 
     function play() {
-      var t = 120;
+      stream.scrollTop = 0;
+      var t = 50;
       nodes.forEach(function (node) {
-        t += parseInt(node.getAttribute('data-gap') || '380', 10);
+        t += Math.round(parseInt(node.getAttribute('data-gap') || '380', 10) * 0.45);
         setTimeout(function () {
           node.classList.add('show');
-          stream.scrollTop = stream.scrollHeight;
         }, t);
       });
       /* progress bar */
       var bar = stream.closest('.phone') && stream.closest('.phone').querySelector('.map-prog i');
-      if (bar) setTimeout(function () { bar.style.width = bar.getAttribute('data-fill') || '83%'; }, 300);
+      if (bar) setTimeout(function () { bar.style.width = bar.getAttribute('data-fill') || '83%'; }, 140);
     }
 
     if (!('IntersectionObserver' in window)) {
