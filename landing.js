@@ -22,16 +22,6 @@ var CONFIG = {
 (function (cfg) {
   "use strict";
 
-  /* ── GA4 동적 로드 ── */
-  if (cfg.GA4_ID && cfg.GA4_ID !== 'G-XXXXXXXXXX') {
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + cfg.GA4_ID;
-    document.head.appendChild(s);
-    window.gtag('js', new Date());
-    window.gtag('config', cfg.GA4_ID);
-  }
-
   function track(name, params) {
     try { if (window.gtag) window.gtag('event', name, params || {}); } catch (_) {}
   }

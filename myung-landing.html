@@ -25,18 +25,13 @@
 <meta name="twitter:image" content="https://myunglanding.vercel.app/assets/og-myung.png">
 <link rel="canonical" href="https://myunglanding.vercel.app/">
 
-<!--
-  ┌──────────────────────────────────────────────────────┐
-  │  ★ GA4 설정                                          │
-  │  Google Analytics 콘솔 → 관리 → 데이터 스트림에서   │
-  │  측정 ID(G-XXXXXXXXXX)를 확인 후 landing.js 상단의  │
-  │  GA4_ID 변수에 입력하세요.                           │
-  │  ID가 설정되지 않으면 GA4는 비활성화됩니다.          │
-  └──────────────────────────────────────────────────────┘
--->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGKR1W7DQ2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SGKR1W7DQ2');
 </script>
 
 <link rel="stylesheet" href="landing.css">
