@@ -8,7 +8,7 @@
 var CONFIG = {
   // GA4 측정 ID — Google Analytics 콘솔 → 관리 → 데이터 스트림
   // 예: 'G-ABCDEF1234'   비워두면 GA4 비활성화
-  GA4_ID: '',
+  GA4_ID: 'G-SGKR1W7DQ2',
 
   // Google Apps Script 웹 앱 URL — apps-script.gs 배포 후 붙여넣기
   // 예: 'https://script.google.com/macros/s/AKfy.../exec'
@@ -123,12 +123,15 @@ var CONFIG = {
     function play() {
       if (done) return;
       done = true;
+      el.classList.add('counting');
       if (reduce) {
         el.textContent = '미래를';
+        el.classList.remove('counting');
         return;
       }
 
-      var start = new Date(2026, 5, 3);
+      var parts = (el.getAttribute('data-start') || '2026.06.03').split('.');
+      var start = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
       var steps = 34;
       var span = 520;
       var i = 0;
@@ -140,6 +143,7 @@ var CONFIG = {
         if (i >= steps) {
           clearInterval(timer);
           el.textContent = '미래를';
+          el.classList.remove('counting');
         }
       }, 38);
     }
@@ -155,7 +159,7 @@ var CONFIG = {
           io.unobserve(en.target);
         }
       });
-    }, { threshold: 0.42 }).observe(el.closest('.duality') || el);
+    }, { threshold: 0.66 }).observe(el);
   }
 
   /* ────────────────────────────────────────────────
