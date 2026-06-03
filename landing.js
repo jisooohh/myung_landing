@@ -163,6 +163,13 @@ var CONFIG = {
     var field = form.querySelector('.field');
     if (!wrap || !field) return;
     var loc = form.getAttribute('data-loc') || 'unknown';
+    var btn = form.querySelector('button');
+
+    if (btn) {
+      btn.addEventListener('click', function () {
+        track('cta_click', { location: loc, source: 'capture' });
+      });
+    }
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -179,27 +186,32 @@ var CONFIG = {
   }
 
   function submitEmail(email, loc, form) {
-    track('email_signup', { location: loc });
     saveLocally(email, loc);
 
     var btn = form ? form.querySelector('button') : null;
     if (btn) { btn.disabled = true; btn.textContent = '신청 중…'; }
 
+    function done() {
+      track('email_submit', { location: loc });
+      showSuccess();
+    }
+
     if (cfg.SHEETS_URL) {
       sendToSheets(email, loc)
-        .then(function ()  { showSuccess(); })
+        .then(function ()  { done(); })
         .catch(function () {
           /* 네트워크 실패해도 로컬 저장은 됐으니 성공 처리 */
-          showSuccess();
+          done();
         });
     } else {
-      showSuccess();
+      done();
     }
   }
 
   function sendToSheets(email, loc) {
     return fetch(cfg.SHEETS_URL, {
       method:  'POST',
+      mode:    'no-cors',
       /* text/plain → simple CORS request, 사전 preflight 없음 → Apps Script에서 정상 수신 */
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body:    JSON.stringify({
@@ -208,9 +220,6 @@ var CONFIG = {
         ua:       (navigator.userAgent || '').slice(0, 250),
         at:       new Date().toISOString()
       })
-    }).then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      return res.json();
     });
   }
 
@@ -258,7 +267,7 @@ var CONFIG = {
     }
 
     fb.querySelector('button').addEventListener('click', function () {
-      track('floatbar_click', {});
+      track('cta_click', { location: 'floatbar', source: 'sticky' });
       var footer = document.getElementById('footer-capture');
       var target = footer || hero;
       var field  = target.querySelector('.field');
@@ -297,14 +306,31 @@ var CONFIG = {
      ──────────────────────────────────────────────── */
   function wireReveal() {
     var els = document.querySelectorAll('.reveal');
+    var previewSeen = {};
+
+    function trackPreview(el) {
+      if (!el || !el.classList.contains('preview')) return;
+      var label = el.getAttribute('data-screen-label') || 'preview';
+      if (previewSeen[label]) return;
+      previewSeen[label] = true;
+      track('preview_view', { preview: label });
+    }
+
     if (!('IntersectionObserver' in window)) {
       /* 폴백: 모두 즉시 표시 */
-      els.forEach(function (el) { el.classList.add('in'); });
+      els.forEach(function (el) {
+        el.classList.add('in');
+        trackPreview(el);
+      });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          trackPreview(en.target);
+          io.unobserve(en.target);
+        }
       });
     }, { threshold: 0.14 });
     els.forEach(function (el) { io.observe(el); });
