@@ -104,7 +104,62 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     3 · Email capture
+     3 · Date spoiler
+     ──────────────────────────────────────────────── */
+  function wireDateSpoiler() {
+    var el = document.querySelector('.date-spoiler');
+    if (!el) return;
+
+    var done = false;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function fmt(d) {
+      var y = d.getFullYear();
+      var m = String(d.getMonth() + 1).padStart(2, '0');
+      var day = String(d.getDate()).padStart(2, '0');
+      return y + '.' + m + '.' + day + '을';
+    }
+
+    function play() {
+      if (done) return;
+      done = true;
+      if (reduce) {
+        el.textContent = '미래를';
+        return;
+      }
+
+      var start = new Date(2026, 5, 3);
+      var steps = 34;
+      var span = 520;
+      var i = 0;
+      var timer = setInterval(function () {
+        i += 1;
+        var d = new Date(start.getTime());
+        d.setDate(start.getDate() + Math.round(i * span / steps));
+        el.textContent = fmt(d);
+        if (i >= steps) {
+          clearInterval(timer);
+          el.textContent = '미래를';
+        }
+      }, 38);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      play();
+      return;
+    }
+    new IntersectionObserver(function (entries, io) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          play();
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.42 }).observe(el.closest('.duality') || el);
+  }
+
+  /* ────────────────────────────────────────────────
+     4 · Email capture
      ──────────────────────────────────────────────── */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -181,7 +236,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     4 · Floating sticky bar
+     5 · Floating sticky bar
      ──────────────────────────────────────────────── */
   function wireFloatbar() {
     var fb   = document.getElementById('floatbar');
@@ -221,7 +276,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     5 · FAQ accordion
+     6 · FAQ accordion
      ──────────────────────────────────────────────── */
   function wireFaq() {
     document.querySelectorAll('.faq-item').forEach(function (item) {
@@ -244,7 +299,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     6 · Reveal sections on scroll
+     7 · Reveal sections on scroll
      ──────────────────────────────────────────────── */
   function wireReveal() {
     var els = document.querySelectorAll('.reveal');
@@ -262,7 +317,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     7 · Scenario timeline auto-play (View A)
+     8 · Scenario timeline auto-play (View A)
      ──────────────────────────────────────────────── */
   function wireStream() {
     var stream = document.getElementById('scenario-stream');
@@ -298,7 +353,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     8 · Chat auto-play (View B)
+     9 · Chat auto-play (View B)
      ──────────────────────────────────────────────── */
   function wireChat() {
     var chat = document.getElementById('clone-chat');
@@ -328,7 +383,7 @@ var CONFIG = {
   }
 
   /* ────────────────────────────────────────────────
-     9 · Scroll depth (GA4)
+     10 · Scroll depth (GA4)
      ──────────────────────────────────────────────── */
   function wireScrollDepth() {
     var marks = [25, 50, 75, 100], fired = {};
@@ -362,6 +417,7 @@ var CONFIG = {
   function init() {
     try { buildSky();       } catch (_) {}
     try { rotateWord();     } catch (_) {}
+    try { wireDateSpoiler(); } catch (_) {}
     try { document.querySelectorAll('.capture form').forEach(wireCapture); } catch (_) {}
     try { wireFloatbar();   } catch (_) {}
     try { wireFaq();        } catch (_) {}
