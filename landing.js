@@ -13,7 +13,7 @@ var CONFIG = {
   // Google Apps Script 웹 앱 URL — apps-script.gs 배포 후 붙여넣기
   // 예: 'https://script.google.com/macros/s/AKfy.../exec'
   // 비워두면 localStorage에만 저장 (데모 모드)
-  SHEETS_URL: 'https://script.google.com/macros/s/AKfycbzqx81YHSZFqCSx9pPrPWoRB2uaspcKcq5C0tQVX4Cx17bd3STb85hPRbB089OdJ5LJ/exec'
+  SHEETS_URL: 'https://script.google.com/macros/s/AKfycbzxUAlZ_Kb_989gG_w5Y1Wnq20RD2SR4Xd74jY16im8mZi0eENNV9rge78Gjtrsa5Wx/exec'
 };
 
 /* ============================================================
@@ -204,7 +204,7 @@ var CONFIG = {
 
     function done() {
       track('email_submit', { location: loc });
-      showSuccess();
+      showSuccess(email);
     }
 
     if (cfg.SHEETS_URL) {
@@ -243,7 +243,7 @@ var CONFIG = {
     } catch (_) {}
   }
 
-  function showSuccess() {
+  function showSuccess(email) {
     document.querySelectorAll('.capture').forEach(function (w) { w.classList.add('ok'); });
     try {
       var list = JSON.parse(localStorage.getItem('myung_waitlist') || '[]');
@@ -256,6 +256,7 @@ var CONFIG = {
     } catch (_) {}
     var fb = document.getElementById('floatbar');
     if (fb) fb.classList.remove('show');
+    window.location.href = 'thanks.html?email=' + encodeURIComponent(email || '');
   }
 
   /* ────────────────────────────────────────────────

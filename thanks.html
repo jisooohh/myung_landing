@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0C">
+<title>myung.ai - 출시 알림 신청 완료</title>
+<meta name="description" content="myung.ai 베타 버전 출시 알림 신청이 완료되었습니다.">
+<meta property="og:title" content="myung.ai - 출시 알림 신청 완료">
+<meta property="og:description" content="베타 버전 출시 후 가장 먼저 알려드리겠습니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myunglanding.vercel.app/thanks.html">
+<meta property="og:image" content="https://myunglanding.vercel.app/assets/og-myung.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://myunglanding.vercel.app/thanks.html">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGKR1W7DQ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SGKR1W7DQ2');
+</script>
+
+<link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="thanks.css">
+</head>
+<body>
+<div id="sky"></div>
+
+<main class="thanks-shell">
+  <a class="thanks-brand" href="index.html" aria-label="myung.ai 홈">
+    <span class="my">my</span><span>ung.ai</span>
+  </a>
+
+  <section class="thanks-card">
+    <span class="thanks-kicker">PRE-LAUNCH RESERVED</span>
+    <h1>베타 버전 출시 후<br>가장 먼저 알려드리겠습니다.</h1>
+    <p>남겨주신 이메일로 무료 베타 릴리즈 소식을 보내드릴게요.</p>
+
+    <div class="thanks-survey">
+      <p>내가 만드는 myung.ai. 의견 보내기</p>
+      <a id="thanks-survey-link" href="survey.html">설문 참여하기</a>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    try {
+      var email = new URLSearchParams(window.location.search).get('email') || '';
+      if (!email) {
+        var list = JSON.parse(localStorage.getItem('myung_waitlist') || '[]');
+        var last = list[list.length - 1];
+        email = last && last.email ? last.email : '';
+      }
+      var link = document.getElementById('thanks-survey-link');
+      if (email && link) link.href = 'survey.html?email=' + encodeURIComponent(email);
+      if (window.gtag) window.gtag('event', 'waitlist_thanks_view');
+    } catch (_) {}
+  })();
+</script>
+</body>
+</html>

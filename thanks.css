@@ -1,0 +1,72 @@
+.thanks-shell {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: max(26px, env(safe-area-inset-top)) var(--gutter) max(32px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.thanks-brand {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 900;
+}
+.thanks-brand .my { color: var(--hi); }
+
+.thanks-card {
+  min-height: calc(100svh - 92px);
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 0;
+  border: 0;
+}
+.thanks-kicker {
+  color: var(--hi);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+.thanks-card h1 {
+  margin: 16px 0 0;
+  font-size: clamp(32px, 9vw, 58px);
+  line-height: 1.16;
+  letter-spacing: -1.8px;
+}
+.thanks-card > p {
+  margin: 18px auto 0;
+  max-width: 25em;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.thanks-survey {
+  margin-top: 44px;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+.thanks-survey p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 900;
+}
+.thanks-survey a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  height: 54px;
+  padding: 0 22px;
+  border-radius: 16px;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 18px 34px -16px rgba(232,92,13,0.76);
+}
