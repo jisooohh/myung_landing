@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A0A0C">
+<title>myung.ai — AI 클론이 당신의 미래를 대신 살아봅니다</title>
+<meta name="description" content="사주와 지금의 데이터로 복제한 AI 클론. 두 개의 당신이 선택지마다 미래를 미리 살아보고 알려줍니다. 출시 알림을 신청하세요.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="myung.ai — AI 클론이 당신의 미래를 대신 살아봅니다">
+<meta property="og:description" content="사주와 지금의 데이터로 복제한 AI 클론. 선택지마다 미래를 미리 살아봅니다.">
+<meta property="og:type" content="website">
+
+<!--
+  ┌──────────────────────────────────────────────────────┐
+  │  ★ GA4 설정                                          │
+  │  Google Analytics 콘솔 → 관리 → 데이터 스트림에서   │
+  │  측정 ID(G-XXXXXXXXXX)를 확인 후 landing.js 상단의  │
+  │  GA4_ID 변수에 입력하세요.                           │
+  │  ID가 설정되지 않으면 GA4는 비활성화됩니다.          │
+  └──────────────────────────────────────────────────────┘
+-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+</script>
+
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<div id="sky"></div>
+
+<main id="app">
+
+  <!-- ============================================================
+       1 · HERO
+       ============================================================ -->
+  <section class="hero" data-screen-label="hero">
+    <div class="masthead">
+      <span>출시 예정</span>
+      <span class="m-dot"></span>
+      <span>PRE-LAUNCH</span>
+    </div>
+    <div class="brand">
+      <span class="wm my">MY</span>
+      <svg width="15" height="15" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 14 L26 20 L20 26 L14 20 Z" fill="#E85C0D" opacity="0.92"/>
+        <path d="M20 2 L22.2 17.8 L38 20 L22.2 22.2 L20 38 L17.8 22.2 L2 20 L17.8 17.8 Z" fill="#E85C0D"/>
+      </svg>
+      <span class="wm ung">UNG</span><span class="dot">.ai</span>
+    </div>
+
+    <h1>
+      AI 클론이 당신 대신<br>
+      <span class="rot-wrap"><span class="rot-bracket">[</span><span class="rot" id="rot-word"><span class="word">연애를</span></span><span class="rot-bracket">]</span></span><br>
+      살아봅니다
+    </h1>
+
+    <p class="sub">고민은 그만. 당신은 선택만 하면 됩니다.</p>
+
+    <div class="capture" id="hero-capture">
+      <form data-loc="hero" novalidate>
+        <input class="field" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" aria-label="이메일 주소">
+        <button class="btn-primary" type="submit">출시 알림 받기</button>
+      </form>
+      <div class="done">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FD7A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        출시 대기 명단에 합류했어요
+      </div>
+      <p class="note">출시 대기 명단에 합류하세요.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2 · 두 개의 당신
+       ============================================================ -->
+  <section class="duality reveal" data-screen-label="duality">
+    <span class="eyebrow">왜 정확한가</span>
+    <h2 class="section-title">수천년의 통계와<br>현재 당신의 만남.</h2>
+
+    <div class="duo">
+      <div class="duo-card past">
+        <div class="orb"></div>
+        <div class="tag">과거의 통계</div>
+        <h3>사주 속 당신</h3>
+        <p>태어난 순간의 좌표. 수천 년의 통계가 만든 타고난 기질과 흐름.</p>
+      </div>
+      <div class="duo-card now">
+        <div class="orb"></div>
+        <div class="tag">현재의 데이터</div>
+        <h3>AI 클론</h3>
+        <p>당신의 성격과 말투, 지금의 선택. 당신을 복제한 또 하나의 나.</p>
+      </div>
+    </div>
+
+    <p class="duo-merge">둘이 만나면, <b>당신의 미래를 시뮬레이션</b>해 볼 수 있습니다.</p>
+  </section>
+
+  <!-- ============================================================
+       3 · 문제 환기
+       ============================================================ -->
+  <section class="problem reveal" data-screen-label="problem">
+    <span class="eyebrow">왜 늘 망설일까</span>
+    <p class="big">당신은 매일 선택합니다.<br><span class="dim">미래를 모른 채</span></p>
+    <p class="lead">이 회사에 갈지, 이 사람과 계속할지, 지금 그만둘지.
+검색하고, 사주를 보고, 친구에게 묻습니다.
+그래도 답은 나오지 않아요.
+    </p>
+    <p class="close">선택이 무서운 게 아니라, <b>그 다음이 보이지 않아서</b>입니다.</p>
+  </section>
+
+  <!-- ============================================================
+       4 · 작동 방식
+       ============================================================ -->
+  <section class="how reveal" data-screen-label="how">
+    <span class="eyebrow">작동 방식</span>
+    <h2 class="section-title">그래서 먼저 살아본 다음,<br>선택합니다.</h2>
+
+    <div class="loop">
+      <div class="line"></div>
+      <div class="step">
+        <div class="num">1</div>
+        <div class="body">
+          <h4>클론이 미래를 삽니다</h4>
+          <p>당신의 고민을 입력하면, 클론은 사주로 만들어진 세계 속에서 선택지마다 갈라지는 미래를 1인칭으로 시뮬레이션합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="body">
+          <h4>당신은 그 결과를 봅니다</h4>
+          <p>각 길에서 무엇이 달라지는지, 클론이 무엇을 느꼈는지 미리 확인합니다.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="body">
+          <h4>이제 당신이 선택합니다</h4>
+          <p>미래를 보고 돌아온 자리에서, 현재의 당신이 더 또렷하게 결정합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5A · 예시 결과 — 진로 시나리오 생성 뷰
+       ============================================================ -->
+  <section class="preview reveal" data-screen-label="preview-scenario">
+    <div class="preview-intro">
+      <span class="preview-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FF7A2E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+        예시 미리보기
+      </span>
+      <span class="eyebrow"> 예시 결과 · 진로</span>
+      <h2 class="section-title">" 지금 회사를 그만두고,<br>창업을 해도 괜찮을까 "</h2>
+      <p class="lead">클론이 두 미래를 각각 8개월씩 살아봤습니다.</p>
+    </div>
+
+    <p class="preview-label">진로 시뮬레이션 · /map</p>
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="island"></div>
+        <div class="phone-status">
+          <span>9:41</span>
+          <span class="dots">
+            <svg width="17" height="11" viewBox="0 0 18 12" fill="#F5EFE5"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="8" rx="1"/><rect x="10" y="1" width="3" height="11" rx="1" opacity=".5"/><rect x="15" y="1" width="3" height="11" rx="1" opacity=".3"/></svg>
+            <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="#F5EFE5" stroke-width="1"><rect x="1" y="1.5" width="19" height="9" rx="2.5"/><rect x="2.5" y="3" width="14" height="6" rx="1.2" fill="#F5EFE5"/><rect x="21" y="4" width="2" height="4" rx="1" fill="#F5EFE5"/></svg>
+          </span>
+        </div>
+
+        <div class="phone-app">
+          <div class="app-head">
+            <div class="av">
+              <svg width="18" height="18" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5 L22 18 L35 20 L22 22 L20 35 L18 22 L5 20 L18 18 Z" fill="#fff"/></svg>
+            </div>
+            <div>
+              <div class="t">지영의 클론</div>
+              <div class="s"><span class="live"></span>시나리오 전개 중</div>
+            </div>
+          </div>
+
+          <div class="map-head">
+            <div class="map-step">전개 <b>5</b> / 6</div>
+            <div class="map-prog"><i data-fill="83%"></i></div>
+          </div>
+
+          <div class="tl" id="scenario-stream">
+            <div class="node blk" data-gap="420">
+              <span class="dot"></span>
+              <div class="tl-label">시나리오 전개 1</div>
+              <div class="tl-card">6개월만 더 준비하기로 마음먹고, 퇴근 후 사이드 프로젝트로 아이템을 다듬어요. 처음엔 '이게 의미가 있나' 싶지만, 庚金의 압박 속에서 만든 결과물이 오히려 단단해요. 木이 칼에 다듬어지는 시기거든요.</div>
+            </div>
+
+            <div class="node q blk" data-gap="440">
+              <span class="dot"></span>
+              <div class="tl-label">가장 먼저 무엇을 할까요?</div>
+              <div class="opts">
+                <div class="opt">
+                  <span class="radio"></span>
+                  <span class="lbl">사표부터 내고 전념한다</span>
+                </div>
+                <div class="opt sel">
+                  <span class="radio"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                  <span class="lbl">지인에게 첫 프로젝트를 부탁한다</span>
+                </div>
+                <div class="opt">
+                  <span class="radio"></span>
+                  <span class="lbl">투자 설명회부터 알아본다</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="node blk" data-gap="440">
+              <span class="dot"></span>
+              <div class="tl-label">시나리오 전개 2</div>
+              <div class="tl-card">망설이다 지인에게 연락했더니, 마침 작은 외주 건이 있었어요. 첫 계약. 큰 돈은 아니지만 '시장에서 내 일이 돈이 된다'는 걸 확인했어요. 퇴사로 흔들렸던 자존감이 이 한 건으로 회복되기 시작해요.</div>
+            </div>
+
+            <div class="node blk" data-gap="440">
+              <span class="dot"></span>
+              <div class="tl-label">시나리오 전개 3</div>
+              <div class="tl-card">그 사이 다니던 회사에서 더 좋은 자리를 제안해요. 이제 선택지가 둘이 아니라, 셋이 됩니다. 떠밀려 나온 게 아니라 '고를 수 있는 사람'이 된 거예요.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="preview-cap">화면 속 수치는 이해를 돕기 위한 예시 미리보기입니다. 집계된 실제 통계가 아닙니다.</p>
+  </section>
+
+  <!-- ============================================================
+       5B · 예시 결과 — 상대 클론과의 채팅 뷰
+       ============================================================ -->
+  <section class="preview reveal" data-screen-label="preview-chat">
+    <div class="preview-intro">
+      <span class="preview-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FF7A2E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>
+        예시 미리보기
+      </span>
+      <span class="eyebrow"> 예시 결과 · 관계</span>
+      <h2 class="section-title">" 아직 사랑하는데 ..<br>헤어져야 하는걸까 "</h2>
+      <p class="lead">상대의 클론과 나누는 대화. 말이 오갈수록 관계의 결이 드러납니다.</p>
+    </div>
+
+    <p class="preview-label">클론 대화 · /map</p>
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="island"></div>
+        <div class="phone-status">
+          <span>9:41</span>
+          <span class="dots">
+            <svg width="17" height="11" viewBox="0 0 18 12" fill="#F5EFE5"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="8" rx="1"/><rect x="10" y="1" width="3" height="11" rx="1" opacity=".5"/><rect x="15" y="1" width="3" height="11" rx="1" opacity=".3"/></svg>
+            <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="#F5EFE5" stroke-width="1"><rect x="1" y="1.5" width="19" height="9" rx="2.5"/><rect x="2.5" y="3" width="14" height="6" rx="1.2" fill="#F5EFE5"/><rect x="21" y="4" width="2" height="4" rx="1" fill="#F5EFE5"/></svg>
+          </span>
+        </div>
+
+        <div class="phone-app">
+          <div class="app-head">
+            <span style="color:var(--faint);margin-right:2px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+            </span>
+            <div class="av">
+              <svg width="16" height="16" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5 L22 18 L35 20 L22 22 L20 35 L18 22 L5 20 L18 18 Z" fill="#fff"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="t">건호의 클론</div>
+              <div class="s"><span class="live"></span>건호 ✕ 상대 · 연결됨</div>
+            </div>
+          </div>
+
+          <div class="chat" id="clone-chat">
+            <div class="when">시뮬레이션 · 관계 #이별을 망설임</div>
+
+            <div class="bubble theirs" data-gap="400">
+              <div class="nm">건호의 클론</div>
+              요즘 너 바쁜 거 아는데 .. 먼저 연락 오는 일이 없더라
+            </div>
+            <div class="bubble mine" data-gap="460">
+              <div class="nm">나</div>
+              연락하면 너한테 괜히 부담 주는 것 같아서.. 너도 솔직히 지쳤던 거 맞잖아
+            </div>
+            <div class="bubble theirs" data-gap="440">
+              <div class="nm">건호의 클론</div>
+              나는 지쳤다고 한 적 없어 아라야.<br>왜 혼자 생각해?
+            </div>
+            <div class="bubble mine" data-gap="440">
+              <div class="nm">나</div>
+              그러네.. 근데 나 너무 외로웠어 너가 나 안 봐줬잖아.
+            </div>
+            <div class="bubble theirs" data-gap="440">
+              <div class="nm">건호의 클론</div>
+              그럼 지금이라도 물어봐 줄래? 나 아직 여기 있어.
+            </div>
+
+            <div class="chat-insight" data-gap="500">
+              <svg width="16" height="16" viewBox="0 0 40 40" fill="#FF7A2E"><path d="M20 5 L22 18 L35 20 L22 22 L20 35 L18 22 L5 20 L18 18 Z"/></svg>
+              당신이 먼저 말하지 않으면, 이 관계는 여기서 멈춥니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="preview-cap">대화는 입력한 고민으로 생성한 예시 미리보기입니다.</p>
+  </section>
+
+  <!-- ============================================================
+       6 · 무엇이든 (카테고리)
+       ============================================================ -->
+  <section class="anything reveal" data-screen-label="categories">
+    <span class="eyebrow">무엇이든</span>
+    <h2 class="section-title">어떤 결과를 원하시나요?</h2>
+    <p class="lead">미래를 미리 보고 와서, 현재에서 선택하세요.</p>
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>진로</span>
+      <span class="chip"><span class="dot"></span>취업·이직</span>
+      <span class="chip"><span class="dot"></span>이별</span>
+      <span class="chip"><span class="dot"></span>연애</span>
+      <span class="chip"><span class="dot"></span>썸</span>
+      <span class="chip"><span class="dot"></span>인간관계</span>
+      <span class="chip"><span class="dot"></span>창업</span>
+      <span class="chip"><span class="dot"></span>이사·정착</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7 · 예상 사용 시나리오
+       ============================================================ -->
+  <section class="reviews reveal" data-screen-label="scenarios">
+    <span class="eyebrow">예상 사용 시나리오</span>
+    <h2 class="section-title">먼저 살아본다는 것.</h2>
+
+    <div class="scenarios">
+      <div class="sc-card">
+        <div class="head">
+          <div class="ix">1</div>
+          <div class="ctx">대기업과 창업 사이에서 망설일 때</div>
+        </div>
+        <p class="quote">두 길을 미리 살아보고, <span class="hl">더 만족스러운 선택</span>을 하게 됩니다.</p>
+      </div>
+      <div class="sc-card">
+        <div class="head">
+          <div class="ix">2</div>
+          <div class="ctx">이별을 결정하지 못하고 있을 때</div>
+        </div>
+        <p class="quote">결과를 보고 나서야, <span class="hl">내가 진짜 원하는 방향</span>을 알게 됩니다.</p>
+      </div>
+      <div class="sc-card">
+        <div class="head">
+          <div class="ix">3</div>
+          <div class="ctx">고민만 반복하며 멈춰 있을 때</div>
+        </div>
+        <p class="quote">그 고민 자체를 넣어보고, <span class="hl">비로소 움직이게</span> 됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8 · 클로징 + 하단 이메일 캡처
+       ============================================================ -->
+  <section class="closing reveal" data-screen-label="closing">
+    <div class="pact">당신의 과거, 현재, 그리고 미래.</div>
+    <h2>미래를 먼저 보고,<br>현재에서 선택하세요.</h2>
+    <p>가보지 않은 길을 클론이 먼저 걷고, 그 결과를 들고 돌아옵니다.</p>
+
+    <div class="capture" id="footer-capture">
+      <form data-loc="footer" novalidate>
+        <input class="field" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소" aria-label="이메일 주소">
+        <button class="btn-primary" type="submit">출시 알림 받기</button>
+      </form>
+      <div class="done">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8FD7A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        출시 대기 명단에 합류했어요
+      </div>
+      <p class="note">출시되면 가장 먼저 알려드릴게요.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9 · FAQ
+       ============================================================ -->
+  <section class="faq reveal" data-screen-label="faq">
+    <span class="eyebrow">자주 묻는 질문</span>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">사주 앱인가요?<span class="ic"></span></button>
+        <div class="faq-a"><div class="inner">아니요. 사주는 '과거의 통계'로만 씁니다. 거기에 지금의 데이터를 더해 만든 클론이 미래를 미리 살아보고, 선택을 돕는 의사결정 서비스입니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">클론이 정말 '나'인가요?<span class="ic"></span></button>
+        <div class="faq-a"><div class="inner">완전한 나는 아닙니다. 당신의 말투, 선택, 사주의 결을 학습한 '또 하나의 나'입니다. 당신을 대신해 길을 먼저 걸어보는 역할을 합니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">미래를 진짜 맞히나요?<span class="ic"></span></button>
+        <div class="faq-a"><div class="inner">점이 아닙니다. 정답을 맞히는 게 아니라, 각 선택지가 어떻게 흘러갈 수 있는지를 시뮬레이션해 보여줍니다. 결정은 늘 당신의 몫입니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">데이터는 안전한가요?<span class="ic"></span></button>
+        <div class="faq-a"><div class="inner">입력하신 정보는 시뮬레이션 생성 외의 용도로 쓰지 않습니다. 자세한 처리 방침은 출시 시 함께 안내드립니다.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">언제 출시되나요?<span class="ic"></span></button>
+        <div class="faq-a"><div class="inner">현재 출시를 준비하고 있습니다. 이메일을 남겨주시면 출시 시점을 가장 먼저 알려드립니다.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">myung.ai · 출시 준비 중</p>
+
+</main>
+
+<!-- Floating sticky CTA bar -->
+<div id="floatbar">
+  <div class="inner">
+    <button type="button">
+      <svg width="18" height="18" viewBox="0 0 40 40" fill="#fff" aria-hidden="true"><path d="M20 5 L22 18 L35 20 L22 22 L20 35 L18 22 L5 20 L18 18 Z"/></svg>
+      출시 알림 받기
+    </button>
+  </div>
+</div>
+
+<script src="landing.js"></script>
+</body>
+</html>
