@@ -502,10 +502,20 @@ section:not(.hero) {
 
 /* ---- Reveal animation for timeline nodes ---- */
 .blk {
-  opacity: 0; transform: translateY(10px);
-  transition: opacity .16s var(--ease), transform .16s var(--ease);
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+  transition:
+    opacity .34s var(--ease),
+    transform .34s var(--ease),
+    filter .34s var(--ease);
 }
-.blk.show { opacity: 1; transform: none; }
+.blk.show {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
 
 /* ---- Chat (View B) ---- */
 .chat {

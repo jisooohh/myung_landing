@@ -333,16 +333,16 @@ var CONFIG = {
 
     function play() {
       stream.scrollTop = 0;
-      var t = 50;
+      var t = 90;
       nodes.forEach(function (node) {
-        t += Math.round(parseInt(node.getAttribute('data-gap') || '380', 10) * 0.45);
+        t += Math.round(parseInt(node.getAttribute('data-gap') || '380', 10) * 0.62);
         setTimeout(function () {
           node.classList.add('show');
         }, t);
       });
       /* progress bar */
       var bar = stream.closest('.phone') && stream.closest('.phone').querySelector('.map-prog i');
-      if (bar) setTimeout(function () { bar.style.width = bar.getAttribute('data-fill') || '83%'; }, 140);
+      if (bar) setTimeout(function () { bar.style.width = bar.getAttribute('data-fill') || '83%'; }, 220);
     }
 
     if (!('IntersectionObserver' in window)) {
